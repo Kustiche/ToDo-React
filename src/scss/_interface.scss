@@ -1,0 +1,37 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  width: 100%;
+  max-width: 450px;
+}
+
+.label {
+  margin-bottom: 5px;
+  color: var(--text-secondary, rgba(0, 0, 0, 0.6));
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: 0.15px;
+  cursor: pointer;
+}
+
+.input {
+  appearance: none;
+  padding: 0;
+  padding-left: 5px;
+  padding-right: 24px;
+  border: none;
+  width: 100%;
+  max-width: 430px;
+  font-family: roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  letter-spacing: 0.15px;
+  color: rgba(0, 0, 0, 0.87);
+}

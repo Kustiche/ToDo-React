@@ -1,38 +1,322 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "roboto";
+  src: url("assets/roboto.woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  margin: 0;
+  font-family: "roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: normal;
+  background-color: #1e1e1e;
+  color: #fff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 1810px;
+}
+
+.btn-reset {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+.link-reset {
+  text-decoration: none;
+  color: inherit;
+}
+
+.list-reset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  width: 100%;
+  max-width: 450px;
+}
+
+.label {
+  margin-bottom: 5px;
+  color: var(--text-secondary, rgba(0, 0, 0, 0.6));
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 12px;
+  letter-spacing: 0.15px;
+  cursor: pointer;
+}
+
+.input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding: 0;
+  padding-left: 5px;
+  padding-right: 24px;
+  border: none;
+  width: 100%;
+  max-width: 430px;
+  font-family: roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  letter-spacing: 0.15px;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.todo {
+  min-height: 100vh;
+}
+.todo__container {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  min-height: 100vh;
+}
+.todo__wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 30px;
+  padding-bottom: 85px;
+  width: 100%;
+  max-width: 515px;
+  min-height: 535px;
+  background-color: #fff;
+  border-radius: 16px;
+}
+.todo__title {
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 10px;
+  font-size: 34px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 123.5%; /* 41.99px */
+  letter-spacing: 0.25px;
+  color: #2196f3;
+}
+.todo__output {
+  margin-bottom: 12px;
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 166%; /* 19.92px */
+  letter-spacing: 0.4px;
+  color: var(--text-secondary, rgba(0, 0, 0, 0.6));
 }
 
-.App-link {
-  color: #61dafb;
+.todo__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 5px;
+  width: 100%;
+  position: relative;
+}
+.todo__inner::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.42);
+  bottom: 0;
+  left: 0;
+}
+.todo__btn {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+}
+.todo__btn::after {
+  position: absolute;
+  content: "";
+  width: 15px;
+  border-top: 2px solid #2196f3;
+  top: 45%;
+  left: 20%;
+  transition: all 0.4s;
+}
+.todo__btn::before {
+  position: absolute;
+  content: "";
+  width: 15px;
+  border-top: 2px solid #2196f3;
+  top: 45%;
+  left: 20%;
+  transform: rotate(90deg);
+  transition: all 0.4s;
+}
+.todo__btn:hover::after {
+  border-top: 2px solid #000;
+}
+.todo__btn:hover::before {
+  border-top: 2px solid #000;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo__tasks {
+  width: 100%;
+  max-width: 450px;
+  max-height: 200px;
+  overflow-y: scroll;
 }
+.todo__task {
+  display: flex;
+  align-items: center;
+}
+.todo__check {
+  width: 100%;
+  max-width: 15px;
+  height: 15px;
+  margin: 11.5px;
+  border: 2px solid rgba(0, 0, 0, 0.6);
+  border-radius: 2px;
+  transition: transform 0.4s;
+}
+.todo__check:hover {
+  transform: scale(0.8);
+}
+.todo__text {
+  width: 100%;
+  color: #000;
+  opacity: 0.87;
+}
+.todo__functional {
+  margin-right: 12px;
+  width: 100%;
+  max-width: 60px;
+  line-height: 0;
+}
+.todo__btn-redaction {
+  padding: 5px;
+  line-height: 0;
+  transition: transform 0.4s;
+}
+.todo__btn-redaction:hover {
+  transform: scale(1.2);
+}
+.todo__btn-delete {
+  padding: 5px;
+  line-height: 0;
+  transition: transform 0.4s;
+}
+.todo__btn-delete:hover {
+  transform: scale(1.2);
+}
+
+.todo__form-editing {
+  margin-bottom: 0;
+}
+.todo__inner--after-dark::after {
+  border-top: 2px solid rgba(0, 0, 0, 0.87);
+}
+.todo__label-task--dark {
+  color: rgba(0, 0, 0, 0.87);
+}
+.todo__check-mark {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  bottom: 5px;
+  right: 0;
+}
+.todo__check-mark::after {
+  position: absolute;
+  content: "";
+  width: 6px;
+  border-top: 2px solid #2196f3;
+  bottom: 8px;
+  left: 4px;
+  transform: rotate(45deg);
+  transition: all 0.4s;
+}
+.todo__check-mark::before {
+  position: absolute;
+  content: "";
+  width: 15px;
+  border-top: 2px solid #2196f3;
+  bottom: 11px;
+  left: 6px;
+  transform: rotate(-45deg);
+  transition: all 0.4s;
+}
+.todo__check-mark:hover::after {
+  border-top: 2px solid #000;
+}
+.todo__check-mark:hover::before {
+  border-top: 2px solid #000;
+}
+
+.todo__completed-tasks {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 450px;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+.todo__completed-task {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.todo__check--active {
+  border: none;
+  background-color: #2196f3;
+  position: relative;
+}
+.todo__check--active::after {
+  position: absolute;
+  content: "";
+  width: 4px;
+  border-top: 2px solid #fff;
+  bottom: 5px;
+  left: 3px;
+  transform: rotate(45deg);
+}
+.todo__check--active::before {
+  position: absolute;
+  content: "";
+  width: 9px;
+  border-top: 2px solid #fff;
+  bottom: 7px;
+  left: 4px;
+  transform: rotate(-45deg);
+}/*# sourceMappingURL=App.css.map */

@@ -1,0 +1,60 @@
+.todo {
+  &__tasks {
+    width: 100%;
+    max-width: 450px;
+    max-height: 200px;
+    overflow-y: scroll;
+  }
+
+  &__task {
+    display: flex;
+    align-items: center;
+  }
+
+  &__check {
+    width: 100%;
+    max-width: 15px;
+    height: 15px;
+    margin: 11.5px;
+    border: 2px solid rgba(0, 0, 0, 0.6);
+    border-radius: 2px;
+    transition: transform 0.4s;
+
+    &:hover {
+      transform: scale(0.8);
+    }
+  }
+
+  &__text {
+    width: 100%;
+    color: $dark;
+    opacity: 0.87;
+  }
+
+  &__functional {
+    margin-right: 12px;
+    width: 100%;
+    max-width: 60px;
+    line-height: 0;
+  }
+
+  &__btn-redaction {
+    padding: 5px;
+    line-height: 0;
+    transition: transform 0.4s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__btn-delete {
+    padding: 5px;
+    line-height: 0;
+    transition: transform 0.4s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
